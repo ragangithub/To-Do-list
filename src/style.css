@@ -67,7 +67,7 @@ body {
   position: relative;
 }
 
-.todo ul li .description {
+.todo ul li .description-text {
   flex-basis: auto;
   width: auto;
   border: none;
@@ -79,6 +79,7 @@ body {
   padding: 30px;
   width: 100%;
   border: none;
+  cursor: pointer;
 }
 
 .todo ul li .fa-ellipsis-v {
@@ -86,4 +87,12 @@ body {
   cursor: pointer;
   right: 2%;
   color: gray;
+}
+
+.todo ul li .fa-trash {
+  position: absolute;
+  cursor: pointer;
+  right: 1.9%;
+  color: gray;
+  display: none;
 }
