@@ -1,23 +1,23 @@
-import "./style.css";
+import './style.css';
 
 const tasks = [
   {
-    description: "wash the dishes",
+    description: 'wash the dishes',
     completed: false,
     index: 0,
   },
   {
-    description: "complete To Do list project",
+    description: 'complete To Do list project',
     completed: false,
     index: 1,
   },
 ];
 
-let displayTasks = () => {
-  const taskList = document.querySelector("ul");
+const displayTasks = () => {
+  const taskList = document.querySelector('ul');
 
   tasks.forEach((task) => {
-    const contain = document.createElement("li");
+    const contain = document.createElement('li');
     contain.innerHTML = `
      
           <input type="checkbox" id="" />

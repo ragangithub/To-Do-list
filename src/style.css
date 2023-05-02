@@ -11,6 +11,7 @@ ul {
 a {
   text-decoration: none;
 }
+
 body {
   background-color: #f7f7f7;
 }
@@ -19,22 +20,29 @@ body {
   margin: 40px;
   background-color: white;
 }
+
 .todo p {
   position: relative;
   padding: 10px;
   border-bottom: 1px solid gray;
   font-size: 22px;
 }
+
 .todo p .fa-refresh {
   font-size: 15px;
   position: absolute;
   right: 1%;
-
   color: grey;
 }
+
 .todo #add-task-form .in {
   position: relative;
+  display: flex;
+  padding: 10px;
+  font-size: 20px;
+  border-bottom: 1px solid gray;
 }
+
 .todo #add-task-form .in .fa-long-arrow-left {
   position: absolute;
   font-size: 15px;
@@ -42,13 +50,7 @@ body {
   color: gray;
   cursor: pointer;
 }
-.todo #add-task-form .in {
-  display: flex;
-  padding: 10px;
-  font-size: 20px;
 
-  border-bottom: 1px solid gray;
-}
 .todo #add-task-form .in input.text {
   font-size: 20px;
   width: 100%;
