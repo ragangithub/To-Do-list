@@ -1,0 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+body {
+  background-color: #f7f7f7;
+}
+
+.todo {
+  margin: 40px;
+  background-color: white;
+}
+.todo p {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid gray;
+  font-size: 22px;
+}
+.todo p .fa-refresh {
+  font-size: 15px;
+  position: absolute;
+  right: 1%;
+
+  color: grey;
+}
+.todo #add-task-form .in {
+  position: relative;
+}
+.todo #add-task-form .in .fa-long-arrow-left {
+  position: absolute;
+  font-size: 15px;
+  right: 1%;
+  color: gray;
+  cursor: pointer;
+}
+.todo #add-task-form .in {
+  display: flex;
+  padding: 10px;
+  font-size: 20px;
+
+  border-bottom: 1px solid gray;
+}
+.todo #add-task-form .in input.text {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.todo ul li {
+  display: flex;
+  font-size: 15px;
+  padding: 10px;
+  gap: 10px;
+  border-bottom: 1px solid gray;
+  position: relative;
+}
+
+.todo ul li .description {
+  flex-basis: auto;
+  width: auto;
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+.todo button {
+  padding: 30px;
+  width: 100%;
+  border: none;
+}
+
+.todo ul li .fa-ellipsis-v {
+  position: absolute;
+  cursor: pointer;
+  right: 2%;
+  color: gray;
+}
