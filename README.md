@@ -35,7 +35,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Todo-List project <a name="about-project"></a>
+# 📖 Todo List project <a name="about-project"></a>
 
 > This is project is called Todo List. It is created with HTML and CSS,and JavaScript.
 
