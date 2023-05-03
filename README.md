@@ -5,7 +5,7 @@
   
   <br/>
 
-  <h3><b> Awesome Books</b></h3>
+  <h3><b> Todo List Project</b></h3>
 
 </div>
 
@@ -35,9 +35,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Todo-List project <a name="about-project"></a>
+# 📖 Todo List project <a name="about-project"></a>
 
-> This is project is called Todo List. It is created with HTML and CSS,and JavaScript.
+> This is project is called Todo List. It is created with HTML and CSS, JavaScript and webpack.
 
 ## 🛠 Built With <a name="built-with"></a>
 
