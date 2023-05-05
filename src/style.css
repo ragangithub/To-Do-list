@@ -75,6 +75,10 @@ body {
   background-color: white;
 }
 
+.todo ul li .description-text.completed {
+  text-decoration: line-through;
+}
+
 .todo button {
   padding: 30px;
   width: 100%;
