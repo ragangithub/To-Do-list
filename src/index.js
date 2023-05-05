@@ -1,32 +1,32 @@
-import "./style.css";
-import TaskCollection from "./modules/task-collection.js";
+import './style.css';
+import TaskCollection from './modules/task-collection.js';
 
 const taskCollection = new TaskCollection();
 taskCollection.displayTasks();
 
 // event listener to add a new book
-const addtaskForm = document.getElementById("add-task-form");
-const enter = document.querySelector(".enter");
+const addtaskForm = document.getElementById('add-task-form');
+const enter = document.querySelector('.enter');
 
 const addTask = (e) => {
   e.preventDefault();
-  const descriptionInput = document.getElementById("description-input");
+  const descriptionInput = document.getElementById('description-input');
   const id = taskCollection.count;
   taskCollection.addTask(descriptionInput.value, false, id);
-  descriptionInput.value = "";
+  descriptionInput.value = '';
 };
 
-addtaskForm.addEventListener("submit", (e) => {
+addtaskForm.addEventListener('submit', (e) => {
   addTask(e);
 });
 
-enter.addEventListener("click", (e) => {
+enter.addEventListener('click', (e) => {
   addTask(e);
 });
 
 // event listener for remove task button click
-document.addEventListener("click", (e) => {
-  const target = e.target.closest(".remove-task-button");
+document.addEventListener('click', (e) => {
+  const target = e.target.closest('.remove-task-button');
 
   if (target) {
     const { id } = target.parentNode;
@@ -36,37 +36,36 @@ document.addEventListener("click", (e) => {
 });
 
 // event listener for editing task  click
-document.addEventListener("click", (e) => {
-  const target = e.target.closest(".edit-task-button");
+document.addEventListener('click', (e) => {
+  const target = e.target.closest('.edit-task-button');
 
   if (target) {
-    const descriptions = document.querySelectorAll(".description-text");
+    const descriptions = document.querySelectorAll('.description-text');
     descriptions.forEach((description) => {
       if (target.parentNode.id === description.parentNode.id) {
-        target.parentNode.style.backgroundColor = "#f5bc42";
+        target.parentNode.style.backgroundColor = '#f5bc42';
         const newText = target.parentNode.firstElementChild.nextElementSibling;
-        newText.style.backgroundColor = "#f5bc42";
+        newText.style.backgroundColor = '#f5bc42';
         const trash = target.parentNode.lastElementChild;
-        const more =
-          target.parentNode.firstElementChild.nextElementSibling
-            .nextElementSibling;
-        trash.style.display = "block";
-        more.style.display = "none";
+        const more = target.parentNode.firstElementChild.nextElementSibling
+          .nextElementSibling;
+        trash.style.display = 'block';
+        more.style.display = 'none';
 
         target.parentNode.firstElementChild.nextElementSibling.removeAttribute(
-          "disabled"
+          'disabled',
         );
         target.parentNode.firstElementChild.nextElementSibling.focus();
         newText.onkeydown = (e) => {
           if (e.keyCode === 13) {
-            target.parentNode.style.backgroundColor = "white";
-            newText.style.backgroundColor = "white";
+            target.parentNode.style.backgroundColor = 'white';
+            newText.style.backgroundColor = 'white';
             const descriptionInput = newText.value;
             const { id } = newText.parentNode;
             taskCollection.editTask(id, descriptionInput);
-            newText.setAttribute("disabled", "true");
-            trash.style.display = "none";
-            more.style.display = "block";
+            newText.setAttribute('disabled', 'true');
+            trash.style.display = 'none';
+            more.style.display = 'block';
           }
         };
       }
@@ -75,8 +74,8 @@ document.addEventListener("click", (e) => {
 });
 
 // event listener for checkbox
-document.addEventListener("click", (e) => {
-  const target = e.target.closest(".complete-checkbox");
+document.addEventListener('click', (e) => {
+  const target = e.target.closest('.complete-checkbox');
   if (target) {
     const index = target.parentNode.id;
 
@@ -85,7 +84,7 @@ document.addEventListener("click", (e) => {
 });
 
 // event listener to clear completed tasks
-const clear = document.querySelector(".clear");
-clear.addEventListener("click", () => {
+const clear = document.querySelector('.clear');
+clear.addEventListener('click', () => {
   taskCollection.clearCompletedTask();
 });
