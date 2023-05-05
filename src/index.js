@@ -37,6 +37,7 @@ document.addEventListener('click', (e) => {
 });
 
 // event listener for editing task  click
+
 document.addEventListener('click', (e) => {
   const target = e.target.closest('.edit-task-button');
 
@@ -72,20 +73,4 @@ document.addEventListener('click', (e) => {
       }
     });
   }
-});
-
-// event listener for checkbox
-document.addEventListener('click', (e) => {
-  const target = e.target.closest('.complete-checkbox');
-  if (target) {
-    const index = target.parentNode.id;
-
-    taskCollection.completeTask(index);
-  }
-});
-
-// event listener to clear completed tasks
-const clear = document.querySelector('.clear');
-clear.addEventListener('click', () => {
-  taskCollection.clearCompletedTask();
 });
