@@ -11,16 +11,16 @@ export default class TaskCollection {
     }
   }
 
-  addTask = (description, completed, index) => {
+  addTask(description, completed, index) {
     const newTask = new Task(description, completed, index);
 
     this.tasks.push(newTask);
     localStorage.setItem('tasks', JSON.stringify(this.tasks)); // save updated collection to localStorage
     this.displayTasks();
     this.count += 1;
-  };
+  }
 
-  removeTask = (index) => {
+  removeTask(index) {
     this.tasks = this.tasks.filter(
       (task) => task.index !== parseInt(index, 10),
     );
@@ -30,9 +30,25 @@ export default class TaskCollection {
 
     localStorage.setItem('tasks', JSON.stringify(this.tasks)); // save updated collection to localStorage
     this.displayTasks();
-  };
+  }
 
-  editTask = (index, newDescription) => {
+  completeTask(index) {
+    const found = this.tasks.find((task) => task.index === parseInt(index, 10));
+
+    // Update task description with new description
+    found.completed = !found.completed;
+
+    this.tasks = this.tasks.map((task) => {
+      if (found.index === task.index) {
+        return found;
+      }
+      return task;
+    });
+    localStorage.setItem('tasks', JSON.stringify(this.tasks)); // save updated collection to localStorage
+    this.displayTasks();
+  }
+
+  editTask(index, newDescription) {
     // Find task with specified index in tasks array
     const found = this.tasks.find((task) => task.index === parseInt(index, 10));
 
@@ -46,9 +62,22 @@ export default class TaskCollection {
       return task;
     });
     localStorage.setItem('tasks', JSON.stringify(this.tasks)); // save updated collection to localStorage
-  };
+  }
 
-  displayTasks = () => {
+  clearCompletedTask() {
+    const number = this.tasks.filter((task) => task.completed === true).length;
+    this.count -= number;
+
+    this.tasks = this.tasks.filter((task) => task.completed !== true);
+    this.tasks.forEach((task, i) => {
+      task.index = i + 1;
+    });
+
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    this.displayTasks();
+  }
+
+  displayTasks() {
     const taskList = document.querySelector('ul');
     taskList.innerHTML = '';
     this.tasks.forEach((task) => {
@@ -56,8 +85,12 @@ export default class TaskCollection {
       contain.id = task.index;
       contain.innerHTML = `
    
-        <input type="checkbox"/>
-        <input class='description-text'  type='text' value='${task.description}' disabled/>
+        <input type="checkbox" ${
+  task.completed ? 'checked' : ''
+}  class='complete-checkbox'/>
+        <input class='description-text ${
+  task.completed ? 'completed' : ''
+}'  type='text' value='${task.description}' disabled/>
         <i class="fa fa-ellipsis-v edit-task-button" aria-hidden="true"></i>
         <i class="fa fa-trash remove-task-button" aria-hidden="true"></i>
       
@@ -66,5 +99,5 @@ export default class TaskCollection {
 
       taskList.appendChild(contain);
     });
-  };
+  }
 }
