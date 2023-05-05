@@ -1,7 +1,8 @@
 import './style.css';
-import TaskCollection from './modules/task-collection.js';
 
-const taskCollection = new TaskCollection();
+import taskCollection from './modules/object.js';
+import { clearCompletedTask, completeTask } from './modules/status-update.js';
+
 taskCollection.displayTasks();
 
 // event listener to add a new book
@@ -79,12 +80,12 @@ document.addEventListener('click', (e) => {
   if (target) {
     const index = target.parentNode.id;
 
-    taskCollection.completeTask(index);
+    completeTask(index);
   }
 });
 
 // event listener to clear completed tasks
 const clear = document.querySelector('.clear');
 clear.addEventListener('click', () => {
-  taskCollection.clearCompletedTask();
+  clearCompletedTask();
 });
