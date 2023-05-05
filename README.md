@@ -71,7 +71,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> coming soon
+> https://ragangithub.github.io/To-Do-list/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
