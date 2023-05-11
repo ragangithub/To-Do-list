@@ -48,4 +48,33 @@ export default class TaskCollection {
     });
     localStorage.setItem('tasks', JSON.stringify(this.tasks)); // save updated collection to localStorage
   }
+
+  completeTask = (index) => {
+    const found = this.tasks.find((task) => task.index === parseInt(index, 10));
+
+    // Update task description with new description
+    found.completed = !found.completed;
+
+    this.tasks = this.tasks.map((task) => {
+      if (found.index === task.index) {
+        return found;
+      }
+      return task;
+    });
+    localStorage.setItem('tasks', JSON.stringify(this.tasks)); // save updated collection to localStorage
+    this.displayTasks();
+  };
+
+  clearCompletedTask = () => {
+    const number = this.tasks.filter((task) => task.completed === true).length;
+    this.count -= number;
+
+    this.tasks = this.tasks.filter((task) => task.completed !== true);
+    this.tasks.forEach((task, i) => {
+      task.index = i + 1;
+    });
+
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    this.displayTasks();
+  };
 }
