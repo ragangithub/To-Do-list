@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-import TaskCollection from '../modules/task-collection.js';
-import 'mock-local-storage';
+import TaskCollection from "../modules/task-collection.js";
+import "mock-local-storage";
 
 describe("Task Collection", () => {
   let taskCollection;
